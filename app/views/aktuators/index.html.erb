@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Aktuators</h1>
+
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th>Deskripsi</th>
+      <th>Jenis</th>
+      <th>Watt</th>
+      <th>Kendali</th>
+      <th>Aksi</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aktuators.each do |aktuator| %>
+      <tr>
+        <td><%= aktuator.nama %></td>
+        <td><%= aktuator.deskripsi %></td>
+        <td><%= aktuator.jenis %></td>
+        <td><%= aktuator.watt %></td>
+        <td><%= aktuator.kendali %></td>
+        <td><%= link_to 'Tampil', aktuator,class:'btn btn-success' %></td>
+        <td><%= link_to 'Edit', edit_aktuator_path(aktuator),class:'btn btn-primary' %></td>
+        <td><%= link_to 'Hapus', aktuator, method: :delete, data: { confirm: 'Are you sure?' } ,class:'btn btn-danger'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aktuator', new_aktuator_path ,class:'btn btn-primary'%>

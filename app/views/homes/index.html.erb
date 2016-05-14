@@ -1,0 +1,27 @@
+
+
+<% unless @rekamsensor11.blank? %> 
+<h1>Temperatur : <%= @rekamsensor11.nilai %> Celcius</h1><h4><%= @rekamsensor12.created_at %></h4>
+<% end %>
+<% unless @rekamsensor12.blank? %> 
+<h1>Kelembaban : <%= @rekamsensor12.nilai %> RH</h1><h4><%= @rekamsensor12.created_at %></h4>
+<% end %>
+
+<div class="col-md-13 col-sm-13">
+<table class="table table-striped" >
+<tbody>
+<% @aktuators.each do |aktuator| %>
+		<tr>
+        <td>
+        	<strong><%= aktuator.nama %><br /></strong>
+        	Status : <%= aktuator.status %><br />
+        	Kendali : <%= aktuator.kendali %>
+        </td> 
+
+        <td><%= link_to "ON", kendalixes_path(:status=> 'Hidup',:aktuatorid => aktuator.id,:nilai => aktuator.id, :notifaktuator => aktuator.nama+' dinyalakan' ), :method => :POST ,  class:'btn btn-success'%></td>
+        <td><%= link_to "OFF", kendalixes_path(:status => 'Mati',:aktuatorid => aktuator.id,:nilai => aktuator.id+1000, :notifaktuator => aktuator.nama+' Dimatikan' ), :method => :POST ,  class:'btn btn-danger'%></td>
+      </tr>
+<% end %>
+</tbody>
+</table>
+ </div>

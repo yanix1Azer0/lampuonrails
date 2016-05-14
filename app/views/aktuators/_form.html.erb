@@ -1,0 +1,41 @@
+<%= form_for(@aktuator) do |f| %>
+  <% if @aktuator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aktuator.errors.count, "error") %> prohibited this aktuator from being saved:</h2>
+
+      <ul>
+      <% @aktuator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :nama %><br>
+    <%= f.text_field :nama %>
+  </div>
+  <div class="form-group">
+    <%= f.label :deskripsi %><br>
+    <%= f.text_field :deskripsi %>
+  </div>
+  <div class="form-group">
+    <%= f.label :jenis %><br>
+    <%= f.text_field :jenis %>
+  </div>
+  <div class="form-group">
+    <%= f.label :watt %><br>
+    <%= f.number_field :watt %>
+  </div>
+  <div class="form-group">
+   <%= f.label :kendali %><br>
+   <%= f.radio_button :kendali, 'manual', :checked => true %> 
+    <%= label :kendali_manual, 'Manual' %>
+    <%= f.radio_button :kendali, 'auto' %>
+    <%= label :kendali_auto, 'Auto' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "submit", class:'btn btn-primary' %>
+    <%= link_to 'Back', aktuators_path ,class:'btn btn-default'%>
+  </div>
+<% end %>

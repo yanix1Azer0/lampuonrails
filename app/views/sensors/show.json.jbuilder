@@ -1,0 +1,1 @@
+json.extract! @sensor, :id, :nama, :deskripsi, :jenis, :created_at, :updated_at

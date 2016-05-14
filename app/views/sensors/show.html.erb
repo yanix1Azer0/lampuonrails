@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+ 
+
+<p>
+  <strong>Nama:</strong>
+  <%= @sensor.nama %>
+</p>
+
+<p>
+  <strong>Deskripsi:</strong>
+  <%= @sensor.deskripsi %>
+</p>
+
+<p>
+  <strong>Jenis:</strong>
+  <%= @sensor.jenis %>
+</p>
+
+
+
+<% unless @sensor_rekamsensors.blank? %>
+     
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Rekaman Sensor
+      </div>
+      <div class="panel-body">
+    <div id="rekaman-sensor" style="height: 250px;"></div>
+      </div>
+    </div>
+ 
+ 
+    <script type="text/javascript">
+      
+ 
+                Morris.Line({
+                element: 'rekaman-sensor',
+                data: <%= raw @sensor_rekamsensors.to_json %>,
+                xkey: 'time',
+                postUnits: '',
+                labels: ['value'],
+                ykeys: ['value'],
+                pointSize: 2,
+                resize: true, 
+              });
+           
+    </script>
+ <% end %>
+<%= link_to 'Edit', edit_sensor_path(@sensor) ,class:'btn btn-primary'%> |
+<%= link_to 'Back', sensors_path ,class:'btn btn-default'%>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @page_title ? @page_title : 'Welcome' %> | Lampu on Rails</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <header>
+      <div class="container" >
+      <div class="page-header">
+      <h1><div class="text1">Lampu on Rails </div>
+      <small><div class="text2"><%= @page_title ? @page_title : 'Welcome' %></div></small></h1>
+ 
+            <script type="text/javascript">
+                $(document).ready(function() {
+                  $('.text1').funnyText({
+                    speed: 700,
+                    activeColor: '#fff',
+                    color: 'black',
+                    fontSize: '2em'
+                  });
+                  
+                  $('.text2').funnyText({
+                    speed: 700,
+                    fontSize: '2em',
+                    color: '#191919',
+                    activeColor: '#fff',
+                    borderColor: 'black'
+                  });
+                });
+              </script>
+        
+      </div>
+      </div>
+    </header>
+
+   
+   <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+        <% if flash[:notice] %>
+          <div class="alert alert-success"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="alert alert-danger"><%= flash[:alert] %></div>
+        <% end %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+    <footer>
+    <div class="container">
+      <p>Copyright &copy; 2016. Yanix </p>
+    </div>
+  </footer>
+
+
+
+
+
+
+</body>
+</html>

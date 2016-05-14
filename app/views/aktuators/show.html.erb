@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nama:</strong>
+  <%= @aktuator.nama %>
+</p>
+
+<p>
+  <strong>Deskripsi:</strong>
+  <%= @aktuator.deskripsi %>
+</p>
+
+<p>
+  <strong>Jenis:</strong>
+  <%= @aktuator.jenis %>
+</p>
+
+<p>
+  <strong>Watt:</strong>
+  <%= @aktuator.watt %>
+</p>
+
+<p>
+  <strong>Kendali:</strong>
+  <%= @aktuator.kendali %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @aktuator.status %>
+</p>
+
+<%= link_to 'Edit', edit_aktuator_path(@aktuator),class:'btn btn-primary' %> |
+<%= link_to 'Back', aktuators_path ,class:'btn btn-default'%>

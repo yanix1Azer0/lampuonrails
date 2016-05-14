@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nama: MyString
+  deskripsi: MyString
+  jenis: MyString
+  watt: 1
+
+two:
+  nama: MyString
+  deskripsi: MyString
+  jenis: MyString
+  watt: 1
